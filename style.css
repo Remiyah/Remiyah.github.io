@@ -1,0 +1,92 @@
+/* خلفية butter yellow */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF9E3;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+/* الرأس */
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* التنقل */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #007acc;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+nav a:hover {
+  background-color: #e6f2ff;
+}
+
+/* العناوين */
+h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #6a0dad; /* بنفسجي */
+}
+
+/* أقسام المشاريع */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+.project-card {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.project-card h3 {
+  margin-top: 0;
+  color: #d32f2f; /* أحمر */
+}
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  background-color: #ffb74d; /* برتقالي */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+.project-card a:hover {
+  background-color: #ffa726;
+}
+
+/* زر التواصل */
+.btn {
+  background-color: #81d4fa; /* أزرق */
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 20px 10px;
+}
+.btn:hover {
+  background-color: #4fc3f7;
+}
+
+/* الفوتر */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #777;
+}
