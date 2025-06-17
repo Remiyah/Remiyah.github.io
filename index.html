@@ -1,48 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Remiyah Algithi - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      padding: 20px;
+      line-height: 1.8;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #1c1c1c;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #666;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #0077b6;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      font-size: 1.8em;
+      color: #1e6091;
+      margin-bottom: 10px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      padding: 20px;
+      background-color: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0077b6;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #023e8a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>Remiyah Algithi</h1>
-    <p>Data & AI/ML Engineer | Mathematician</p>
+    <p>مهندسة بيانات وذكاء صناعي / رياضية 💡</p>
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#about">عنّي</a>
+    <a href="#projects">المشاريع</a>
+    <a href="#contact">تواصل</a>
   </nav>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p>I’m a passionate Data & AI/ML Engineer with a strong background in Mathematics...</p>
+    <h2>عنّي</h2>
+    <p>
+      أنا ريمية، مهندسة بيانات وذكاء صناعي بخلفية قوية في الرياضيات.
+      أعمل على تحويل البيانات إلى قرارات ذكية باستخدام نماذج تعلم الآلة والتحليل الإحصائي.
+    </p>
   </section>
 
   <section id="projects">
-    <h2>My Projects</h2>
+    <h2>مشاريعي</h2>
     <div class="projects-grid">
-      <!-- مشروع 1 -->
+
+      <!-- تحميل تقرير Power BI -->
       <div class="project-card">
-        <h3>Project 1</h3>
-        <p>Short description</p>
-        <a href="#">View More</a>
+        <h3>تقرير Power BI - December Sales</h3>
+        <p>📊 لتحميل ملف Power BI الأصلي اضغطي الزر:</p>
+        <a class="btn" href="december%20sales.pbix" download>تحميل التقرير (.pbix)</a>
       </div>
-      <!--  -->
+
+      <!-- مشروع ثاني كمثال -->
+      <div class="project-card">
+        <h3>تصنيف نصوص بالعربية</h3>
+        <p>نموذج NLP لتصنيف الأخبار باستخدام BERT بالعربية.</p>
+        <a class="btn" href="#">عرض المشروع</a>
+      </div>
+
     </div>
   </section>
 
   <section id="contact">
-    <h2>Connect with Me</h2>
+    <h2>تواصل معي</h2>
+    <p>تابعني على منصاتي المهنية:</p>
     <a class="btn" href="https://www.linkedin.com/in/your-name/">LinkedIn</a>
-    <!--  ... -->
+    <a class="btn" href="mailto:youremail@example.com">Email</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 Remiyah Algithi</p>
+    <p>&copy; 2025 ريمية القثي - جميع الحقوق محفوظة</p>
   </footer>
+
 </body>
 </html>
+
