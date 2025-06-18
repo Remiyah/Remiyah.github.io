@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remiyah Algithi | مهندسة بيانات وذكاء اصطناعي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -39,7 +39,7 @@
             padding: 20px;
         }
         
-        /* التصميم العلوي */
+        /* التصميم العلوي - تم التعديل هنا */
         header {
             text-align: center;
             padding: 60px 20px;
@@ -49,12 +49,35 @@
         }
         
         .name {
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Playfair Display', serif; /* خط رسمي وجميل */
             font-size: 5rem;
             color: var(--soft-pink);
             margin-bottom: 15px;
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1.5s ease-out;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+            letter-spacing: 2px; /* تباعد بين الحروف */
+        }
+        
+        .name::before,
+        .name::after {
+            content: "";
+            position: absolute;
+            height: 3px;
+            background-color: var(--dark-text);
+            width: 100%;
+            left: 0;
+            opacity: 0.3;
+        }
+        
+        .name::before {
+            top: -10px;
+        }
+        
+        .name::after {
+            bottom: -10px;
         }
         
         .title {
