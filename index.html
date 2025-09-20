@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remiyah Al-Githi | عالمة رياضيات ومهندسة ذكاء اصطناعي</title>
+    <title>Remiyah Al-Githi | Data Scientist | AI Specialist | Business Intelligence Analyst</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #0a192f;
-            --dark-blue: #112240;
+            --primary-dark: #0a192f;
+            --secondary-dark: #112240;
+            --accent: #64ffda;
+            --accent-light: #8affdf;
+            --accent-pink: #ff64f9;
+            --accent-purple: #6e5ce6;
+            --light-text: #ccd6f6;
+            --lighter-text: #e6f1ff;
             --medium-blue: #1e4a76;
-            --light-blue: #64ffda;
             --sky-blue: #a8b2d1;
-            --light-gray: #ccd6f6;
-            --white: #e6f1ff;
         }
         
         * {
@@ -24,16 +27,16 @@
         }
         
         body {
-            background: var(--navy);
-            color: var(--light-gray);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0d2347 100%);
+            color: var(--light-text);
             line-height: 1.7;
             font-family: 'Tajawal', sans-serif;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(17, 34, 64, 0.4) 0%, transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(30, 74, 118, 0.3) 0%, transparent 25%);
-            background-attachment: fixed;
             min-height: 100vh;
             padding-bottom: 40px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(17, 34, 64, 0.5) 0%, transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(110, 92, 230, 0.3) 0%, transparent 25%);
+            background-attachment: fixed;
         }
         
         .container {
@@ -44,7 +47,7 @@
         
         /* Header Styles */
         header {
-            padding: 40px 0 30px;
+            padding: 40px 0 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -52,16 +55,24 @@
         
         .name {
             font-size: 3.8rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, var(--light-blue), var(--sky-blue));
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--accent), var(--accent-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             font-weight: 700;
             letter-spacing: -1px;
             font-family: 'El Messiri', serif;
-            text-shadow: 0 2px 10px rgba(100, 255, 218, 0.2);
+            text-shadow: 0 2px 15px rgba(100, 255, 218, 0.3);
             line-height: 1.2;
+        }
+        
+        .title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
         
         .tagline {
@@ -92,12 +103,32 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(100, 255, 218, 0.1);
             backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .nav-btn:hover::before, .nav-btn.active::before {
+            left: 100%;
         }
         
         .nav-btn:hover, .nav-btn.active {
             background: rgba(100, 255, 218, 0.1);
-            color: var(--light-blue);
-            border-color: var(--light-blue);
+            color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
         }
         
         /* Section Styles */
@@ -115,7 +146,7 @@
         .section-title {
             font-size: 2.2rem;
             margin-bottom: 30px;
-            color: var(--light-blue);
+            color: var(--accent);
             text-align: center;
             position: relative;
             display: inline-block;
@@ -129,7 +160,7 @@
             position: absolute;
             width: 50%;
             height: 3px;
-            background: var(--light-blue);
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
             bottom: -10px;
             left: 25%;
         }
@@ -143,31 +174,54 @@
         }
         
         .expertise-card {
-            background: rgba(17, 34, 64, 0.7);
-            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8), rgba(30, 74, 118, 0.5));
+            border-radius: 15px;
             padding: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             border: 1px solid rgba(100, 255, 218, 0.1);
             backdrop-filter: blur(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            opacity: 0;
+        }
+        
+        .expertise-card:hover::before {
+            opacity: 1;
         }
         
         .expertise-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border-color: var(--light-blue);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
         }
         
         .expertise-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
-            color: var(--light-blue);
+            color: var(--accent);
+            background: linear-gradient(45deg, var(--accent), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .expertise-title {
             font-size: 1.6rem;
             margin-bottom: 12px;
-            color: var(--light-blue);
+            color: var(--lighter-text);
             font-family: 'El Messiri', serif;
         }
         
@@ -186,28 +240,41 @@
         }
         
         .project-card {
-            background: rgba(17, 34, 64, 0.7);
-            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8), rgba(30, 74, 118, 0.5));
+            border-radius: 15px;
             overflow: hidden;
             border: 1px solid rgba(100, 255, 218, 0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             backdrop-filter: blur(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         
         .project-card:hover {
             transform: translateY(-8px);
-            border-color: var(--light-blue);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         
         .project-img {
             height: 180px;
-            background: linear-gradient(45deg, var(--medium-blue), var(--dark-blue));
+            background: linear-gradient(45deg, var(--accent-purple), var(--medium-blue));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--light-blue);
+            color: var(--lighter-text);
             font-size: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(100, 255, 218, 0.2), transparent);
         }
         
         .project-content {
@@ -217,7 +284,7 @@
         .project-title {
             font-size: 1.4rem;
             margin-bottom: 10px;
-            color: var(--light-blue);
+            color: var(--accent);
             font-family: 'El Messiri', serif;
         }
         
@@ -227,25 +294,6 @@
             min-height: 100px;
         }
         
-        .placeholder-text {
-            background: rgba(136, 146, 176, 0.2);
-            height: 16px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-        
-        .placeholder-text.short {
-            width: 70%;
-        }
-        
-        .placeholder-text.medium {
-            width: 90%;
-        }
-        
-        .placeholder-text.long {
-            width: 100%;
-        }
-        
         /* Experience Styles */
         .experience-container {
             max-width: 800px;
@@ -253,18 +301,25 @@
         }
         
         .experience-card {
-            background: rgba(17, 34, 64, 0.7);
-            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8), rgba(30, 74, 118, 0.5));
+            border-radius: 15px;
             padding: 25px;
             margin-bottom: 25px;
             border: 1px solid rgba(100, 255, 218, 0.1);
             backdrop-filter: blur(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
         }
         
         .experience-title {
             font-size: 1.5rem;
-            color: var(--light-blue);
+            color: var(--accent);
             margin-bottom: 8px;
             font-family: 'El Messiri', serif;
         }
@@ -290,31 +345,36 @@
         }
         
         .contact-card {
-            background: rgba(17, 34, 64, 0.7);
-            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8), rgba(30, 74, 118, 0.5));
+            border-radius: 15px;
             padding: 25px;
             text-align: center;
             border: 1px solid rgba(100, 255, 218, 0.1);
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         
         .contact-card:hover {
             transform: translateY(-5px);
-            border-color: var(--light-blue);
+            border-color: var(--accent);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
         }
         
         .contact-icon {
             font-size: 2.5rem;
-            color: var(--light-blue);
+            color: var(--accent);
             margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .contact-title {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            color: var(--light-blue);
+            color: var(--lighter-text);
             font-family: 'El Messiri', serif;
         }
         
@@ -325,17 +385,32 @@
         }
         
         .contact-link {
-            color: var(--light-blue);
+            color: var(--accent);
             text-decoration: none;
             transition: color 0.3s ease;
             display: block;
             margin-top: 10px;
             font-size: 1.05rem;
+            position: relative;
+        }
+        
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-link:hover::after {
+            width: 100%;
         }
         
         .contact-link:hover {
-            color: var(--white);
-            text-decoration: underline;
+            color: var(--accent-light);
         }
         
         /* CV Section */
@@ -347,8 +422,8 @@
         .cv-btn {
             display: inline-block;
             background: transparent;
-            color: var(--light-blue);
-            border: 2px solid var(--light-blue);
+            color: var(--accent);
+            border: 2px solid var(--accent);
             padding: 12px 35px;
             font-size: 1.15rem;
             border-radius: 30px;
@@ -357,12 +432,31 @@
             text-decoration: none;
             margin-top: 10px;
             font-family: 'El Messiri', serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cv-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .cv-btn:hover::before {
+            left: 100%;
         }
         
         .cv-btn:hover {
             background: rgba(100, 255, 218, 0.1);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
         }
         
         /* Footer */
@@ -371,6 +465,7 @@
             padding: 40px 0 20px;
             color: var(--sky-blue);
             font-size: 1rem;
+            margin-top: 40px;
         }
         
         .footer-text {
@@ -387,11 +482,22 @@
         .social-icon {
             color: var(--sky-blue);
             font-size: 1.4rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(17, 34, 64, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.1);
         }
         
         .social-icon:hover {
-            color: var(--light-blue);
+            color: var(--accent);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
         }
         
         /* Animations */
@@ -400,10 +506,39 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* Particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.3);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-40px) translateX(-10px); }
+            75% { transform: translateY(-20px) translateX(10px); }
+        }
+        
         /* Responsive Design */
         @media (max-width: 900px) {
             .name {
                 font-size: 3rem;
+            }
+            
+            .title {
+                font-size: 1.5rem;
             }
             
             .tagline {
@@ -451,6 +586,10 @@
                 font-size: 2.2rem;
             }
             
+            .title {
+                font-size: 1.3rem;
+            }
+            
             .tagline {
                 font-size: 1.1rem;
             }
@@ -470,11 +609,15 @@
     </style>
 </head>
 <body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
     <div class="container">
         <!-- Header Section -->
         <header>
             <h1 class="name">ريميّة الغيثي<br><span style="font-size: 2.8rem;">Remiyah Al-Githi</span></h1>
-            <p class="tagline">عالمة رياضيات | مهندسة ذكاء اصطناعي | مهندسة تعلم آلي | مهندسة بيانات</p>
+            <p class="title">Data Scientist | AI Specialist | Business Intelligence Analyst</p>
+            <p class="tagline">عالمة بيانات | أخصائية ذكاء اصطناعي | محللة ذكاء الأعمال</p>
         </header>
         
         <!-- Navigation -->
@@ -492,11 +635,11 @@
             <div class="expertise-container">
                 <div class="expertise-card">
                     <div class="expertise-icon">
-                        <i class="fas fa-calculator"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="expertise-title">عالمة رياضيات</h3>
+                    <h3 class="expertise-title">عالمة بيانات</h3>
                     <p class="expertise-desc">
-                        خبرة متقدمة في الرياضيات التطبيقية والنظرية، مع تركيز على الجبر الخطي، التفاضل والتكامل المتقدم، الإحصاء الرياضي، والتحليل العددي. أقوم بتطبيق المفاهيم الرياضية لحل مشكلات العالم الحقيقي في مجال الذكاء الاصطناعي.
+                        تحليل وتنقية البيانات لاستخراج الرؤى القيمة. استخدام تقنيات إحصائية متقدمة وتصور البيانات لاتخاذ قرارات مدعومة بالبيانات. خبرة في Python, R, SQL وأدوات التحليل الإحصائي.
                     </p>
                 </div>
                 
@@ -504,9 +647,19 @@
                     <div class="expertise-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3 class="expertise-title">مهندسة ذكاء اصطناعي</h3>
+                    <h3 class="expertise-title">أخصائية ذكاء اصطناعي</h3>
                     <p class="expertise-desc">
-                        تصميم وتطوير أنظمة ذكاء اصطناعي متكاملة تشمل معالجة اللغات الطبيعية، الرؤية الحاسوبية، وأنظمة التوصية. خبرة في تطوير نماذج تعلم عميق باستخدام TensorFlow وPyTorch، مع التركيز على حلول قابلة للتطوير وقوية.
+                        تصميم وتطوير أنظمة ذكاء اصطناعي متكاملة تشمل معالجة اللغات الطبيعية، الرؤية الحاسوبية، وأنظمة التوصية. خبرة في تطوير نماذج تعلم عميق باستخدام TensorFlow وPyTorch.
+                    </p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="expertise-title">محللة ذكاء الأعمال</h3>
+                    <p class="expertise-desc">
+                        تطوير حلول Business Intelligence باستخدام أدوات مثل Tableau وPower BI. تصميم لوحات تحكم تفاعلية وتقارير قابلة للتخصيص لمساعدة المؤسسات في اتخاذ القرارات الإستراتيجية.
                     </p>
                 </div>
                 
@@ -516,17 +669,7 @@
                     </div>
                     <h3 class="expertise-title">مهندسة تعلم آلي</h3>
                     <p class="expertise-desc">
-                        تطوير نماذج تعلم آلي من مرحلة ما قبل المعالجة إلى النشر. خبرة في خوارزميات التعلم الآلي الكلاسيكية والتعلم العميق. تطوير خطوط أنابيب بيانات كاملة وتقييم النماذج وتحسينها لتحقيق أعلى دقة وأداء.
-                    </p>
-                </div>
-                
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="expertise-title">مهندسة بيانات</h3>
-                    <p class="expertise-desc">
-                        تصميم وتنفيذ بنى تحتية قابلة للتطوير لمعالجة البيانات. خبرة في ETL، تخزين البيانات، وقواعد البيانات SQL/NoSQL. تطوير أنظمة معالجة بيانات في الوقت الحقيقي باستخدام Apache Spark وKafka، مع التركيز على كفاءة وجودة البيانات.
+                        تطوير نماذج تعلم آلي من مرحلة ما قبل المعالجة إلى النشر. بناء خطوط أنابيب بيانات كاملة وتقييم النماذج وتحسينها لتحقيق أعلى دقة وأداء.
                     </p>
                 </div>
             </div>
@@ -538,14 +681,13 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <i class="fas fa-project-diagram"></i>
+                        <i class="fas fa-analytics"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">نظام تحليل المشاعر</h3>
+                        <h3 class="project-title">نظام تحليل البيانات الضخمة</h3>
                         <div class="project-desc">
-                            نظام لتحليل المشاعر في النصوص العربية باستخدام تقنيات معالجة اللغات الطبيعية والتعلم العميق. تم تدريب النموذج على مجموعة بيانات مخصصة وحقق دقة 92%.
+                            نظام متكامل لتحليل البيانات الضخمة باستخدام خوارزميات التعلم الآلي. يجمع بين تقنيات معالجة البيانات والتخزين الموزع لتحليل كميات هائلة من البيانات في وقت قياسي.
                         </div>
-                        <div class="placeholder-text short"></div>
                     </div>
                 </div>
                 
@@ -554,24 +696,22 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">منصة التنبؤ المالي</h3>
+                        <h3 class="project-title">منصة ذكاء الأعمال</h3>
                         <div class="project-desc">
-                            منصة للتنبؤ بأسعار الأسهم باستخدام نماذج السلاسل الزمنية المتقدمة والشبكات العصبية. تقدم المنصة توصيات استثمارية بناءً على التحليل الفني والأساسي.
+                            منصة متكاملة لتحليل أداء الأعمال وتقديم رؤى قابلة للتنفيذ. توفر لوحات تحكم مخصصة وتقارير تلقائية مع إمكانية التنبؤ بالاتجاهات المستقبلية.
                         </div>
-                        <div class="placeholder-text short"></div>
                     </div>
                 </div>
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-ai"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">نظام كشف الاحتيال</h3>
+                        <h3 class="project-title">نظام التوصيات الذكي</h3>
                         <div class="project-desc">
-                            نظام قائم على التعلم الآلي للكشف عن المعاملات المالية الاحتيالية في الوقت الحقيقي. يستخدم خوارزميات التصنيف المتقدمة ويحلل أنماط السلوك غير العادية.
+                            نظام توصيات يعتمد على خوارزميات التعلم العميق لتحليل تفضيلات المستخدمين وتقديم توصيات دقيقة. يستخدم تقنيات معالجة اللغة الطبيعية والرؤية الحاسوبية.
                         </div>
-                        <div class="placeholder-text short"></div>
                     </div>
                 </div>
             </div>
@@ -582,18 +722,26 @@
             <h2 class="section-title">الخبرات العملية</h2>
             <div class="experience-container">
                 <div class="experience-card">
-                    <h3 class="experience-title">مدخل بيانات | محلل | محاسب</h3>
-                    <span class="experience-company">مؤسسة Long Way | 2020 - 2022</span>
+                    <h3 class="experience-title">عالمة بيانات أولى</h3>
+                    <span class="experience-company">شركة التقنية المتقدمة | 2022 - الحاضر</span>
                     <p class="experience-desc">
-                        قمت بإدارة وإدخال قواعد البيانات المالية والتحليل الإحصائي. تطوير أنظمة لجمع وتنظيم البيانات المالية، وإنشاء تقارير تحليلية لدعم اتخاذ القرارات الإستراتيجية. مسؤولية تدقيق البيانات المالية وضمان دقتها واكتمالها.
+                        قيادة فريق البيانات لتطوير حلول ذكاء اصطناعي متقدمة. تصميم نماذج تنبؤية وتحليلية لتحسين عمليات الأعمال واتخاذ القرارات. تطوير استراتيجيات جمع البيانات وتخزينها ومعالجتها.
                     </p>
                 </div>
                 
                 <div class="experience-card">
-                    <h3 class="experience-title">محررة مقالات</h3>
-                    <span class="experience-company">منسوج | 2018 - 2020</span>
+                    <h3 class="experience-title">محللة ذكاء أعمال</h3>
+                    <span class="experience-company">مؤسسة البيانات الذكية | 2020 - 2022</span>
                     <p class="experience-desc">
-                        قمت بتحرير ومراجعة المحتوى التقني والعلمي. كتابة مقالات متخصصة في مجال التكنولوجيا والذكاء الاصطناعي. إدارة عملية تحرير المحتوى من التخطيط الأولي حتى النشر النهائي، مع ضمان الجودة والوضوح والدقة العلمية.
+                        تطوير لوحات تحكم تفاعلية وتقارير أداء للفرق الإدارية. تحليل بيانات السوق والمنافسين لتحديد فرص النمو. تقديم توصيات استراتيجية بناءً على تحليلات متقدمة.
+                    </p>
+                </div>
+                
+                <div class="experience-card">
+                    <h3 class="experience-title">باحثة في الذكاء الاصطناعي</h3>
+                    <span class="experience-company">جامعة التكنولوجيا | 2018 - 2020</span>
+                    <p class="experience-desc">
+                        إجراء أبحاث في مجال معالجة اللغة الطبيعية والرؤية الحاسوبية. نشر أوراق علمية في مؤتمرات دولية. تطوير نماذج أولية لتطبيقات الذكاء الاصطناعي في مجالات مختلفة.
                     </p>
                 </div>
             </div>
@@ -604,7 +752,7 @@
             <h2 class="section-title">السيرة الذاتية</h2>
             <div class="cv-container">
                 <p style="color: var(--sky-blue); margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    يمكنك تحميل سيرتي الذاتية للاطلاع على تفاصيل خبراتي الأكاديمية والمهنية، ومشاريعي البحثية، والمهارات التقنية التي أمتلكها في مجال الرياضيات والذكاء الاصطناعي وهندسة البيانات.
+                    يمكنك تحميل سيرتي الذاتية للاطلاع على تفاصيل خبراتي الأكاديمية والمهنية، ومشاريعي البحثية، والمهارات التقنية التي أمتلكها في مجال علم البيانات والذكاء الاصطناعي وتحليل الأعمال.
                 </p>
                 <a href="#" class="cv-btn">تحميل السيرة الذاتية (PDF)</a>
             </div>
@@ -639,18 +787,27 @@
                     <p class="contact-info">Remiyah Al-Githi</p>
                     <a href="https://linkedin.com/in/remiyah" target="_blank" class="contact-link">زيارة الملف الشخصي</a>
                 </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3 class="contact-title">جيت هاب</h3>
+                    <p class="contact-info">Remiyah-AlGithi</p>
+                    <a href="https://github.com/Remiyah-AlGithi" target="_blank" class="contact-link">عرض المشاريع</a>
+                </div>
             </div>
         </section>
         
         <!-- Footer -->
         <footer>
             <p class="footer-text">© 2023 ريميّة الغيثي. جميع الحقوق محفوظة.</p>
-            <p class="footer-text">مصمم بحب من عالمة رياضيات ومهندسة ذكاء اصطناعي</p>
+            <p class="footer-text">مصمم بحب من عالمة بيانات ومهندسة ذكاء اصطناعي</p>
             
             <div class="social-icons">
                 <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-medium"></i></a>
             </div>
         </footer>
@@ -681,8 +838,32 @@
                 });
             });
             
-            // Activate first section by default
-            document.querySelector('.nav-btn.active').click();
+            // Create particles
+            createParticles();
+            
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 30;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random size between 3px and 8px
+                    const size = Math.random() * 5 + 3;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    // Random position
+                    particle.style.left = `${Math.random() * 100}vw`;
+                    particle.style.top = `${Math.random() * 100}vh`;
+                    
+                    // Random animation delay
+                    particle.style.animationDelay = `${Math.random() * 15}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
         });
     </script>
 </body>
