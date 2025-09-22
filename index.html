@@ -3,40 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remiyah Al-Githi | Data Scientist | AI Specialist | Business Intelligence Analyst</title>
+    <title>ريمية الحطيم - Data Scientist & AI Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #0a192f;
-            --secondary-dark: #112240;
-            --accent: #64ffda;
-            --accent-light: #8affdf;
-            --accent-pink: #ff64f9;
-            --accent-purple: #6e5ce6;
-            --light-text: #ccd6f6;
-            --lighter-text: #e6f1ff;
-            --medium-blue: #1e4a76;
-            --sky-blue: #a8b2d1;
+            --primary: #ff3e6e;
+            --secondary: #00c2ff;
+            --dark: #0a0a0a;
+            --light: #f8f8f8;
+            --gray: #2a2a2a;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #0d2347 100%);
-            color: var(--light-text);
-            line-height: 1.7;
-            font-family: 'Tajawal', sans-serif;
-            min-height: 100vh;
-            padding-bottom: 40px;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(17, 34, 64, 0.5) 0%, transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(110, 92, 230, 0.3) 0%, transparent 25%);
-            background-attachment: fixed;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
         }
         
         .container {
@@ -45,826 +33,471 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
-        header {
-            padding: 40px 0 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        /* شريط التنقل */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
         }
         
-        .name {
-            font-size: 3.8rem;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* قسم المقدمة */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+            padding: 40px 0;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 10px;
-            background: linear-gradient(to right, var(--accent), var(--accent-purple));
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-weight: 700;
-            letter-spacing: -1px;
-            font-family: 'El Messiri', serif;
-            text-shadow: 0 2px 15px rgba(100, 255, 218, 0.3);
-            line-height: 1.2;
         }
         
-        .title {
+        .hero h2 {
             font-size: 1.8rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #ccc;
         }
         
-        .tagline {
-            font-size: 1.4rem;
-            color: var(--sky-blue);
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.5;
-        }
-        
-        /* Navigation */
-        nav {
+        .hero-buttons {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0 40px;
+            gap: 20px;
+            margin-top: 30px;
         }
         
-        .nav-btn {
-            background: rgba(17, 34, 64, 0.7);
-            color: var(--sky-blue);
-            border: none;
-            padding: 10px 20px;
+        .btn {
+            padding: 12px 30px;
             border-radius: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
         }
         
-        .nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
-            transition: 0.5s;
-            z-index: -1;
+        .btn-primary {
+            background: var(--primary);
+            color: white;
         }
         
-        .nav-btn:hover::before, .nav-btn.active::before {
-            left: 100%;
+        .btn-primary:hover {
+            background: #ff2a5c;
+            transform: translateY(-3px);
         }
         
-        .nav-btn:hover, .nav-btn.active {
-            background: rgba(100, 255, 218, 0.1);
-            color: var(--accent);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
         }
         
-        /* Section Styles */
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* الأقسام العامة */
         section {
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(136, 146, 176, 0.1);
-            display: none;
-        }
-        
-        section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
+            padding: 80px 0;
         }
         
         .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: var(--accent);
             text-align: center;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'El Messiri', serif;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-            bottom: -10px;
-            left: 25%;
-        }
-        
-        /* Expertise Styles */
-        .expertise-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .expertise-card {
-            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8), rgba(30, 74, 118, 0.5));
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .expertise-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
-            transform: rotate(45deg);
-            transition: 0.5s;
-            opacity: 0;
-        }
-        
-        .expertise-card:hover::before {
-            opacity: 1;
-        }
-        
-        .expertise-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent);
-        }
-        
-        .expertise-icon {
             font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-            background: linear-gradient(45deg, var(--accent), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            margin-bottom: 60px;
+            color: var(--primary);
         }
         
-        .expertise-title {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-            color: var(--lighter-text);
-            font-family: 'El Messiri', serif;
-        }
-        
-        .expertise-desc {
-            color: var(--sky-blue);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        
-        /* Projects Styles */
+        /* قسم الأعمال السابقة */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .project-card {
-            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8), rgba(30, 74, 118, 0.5));
-            border-radius: 15px;
+            background: var(--gray);
+            border-radius: 10px;
             overflow: hidden;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
         }
         
         .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
         }
         
         .project-img {
-            height: 180px;
-            background: linear-gradient(45deg, var(--accent-purple), var(--medium-blue));
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--lighter-text);
-            font-size: 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(100, 255, 218, 0.2), transparent);
         }
         
         .project-content {
             padding: 20px;
         }
         
-        .project-title {
-            font-size: 1.4rem;
+        .project-content h3 {
             margin-bottom: 10px;
-            color: var(--accent);
-            font-family: 'El Messiri', serif;
+            color: var(--primary);
         }
         
-        .project-desc {
-            color: var(--sky-blue);
-            margin-bottom: 20px;
-            min-height: 100px;
-        }
-        
-        /* Experience Styles */
-        .experience-container {
+        /* قسم السيرة الذاتية */
+        .timeline {
+            position: relative;
             max-width: 800px;
-            margin: 30px auto 0;
+            margin: 0 auto;
         }
         
-        .experience-card {
-            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8), rgba(30, 74, 118, 0.5));
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
         }
         
-        .experience-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
         }
         
-        .experience-title {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 8px;
-            font-family: 'El Messiri', serif;
+        .timeline-item:nth-child(odd) {
+            left: 0;
         }
         
-        .experience-company {
-            color: var(--sky-blue);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            display: block;
+        .timeline-item:nth-child(even) {
+            left: 50%;
         }
         
-        .experience-desc {
-            color: var(--sky-blue);
-            line-height: 1.7;
+        .timeline-content {
+            padding: 20px;
+            background: var(--gray);
+            border-radius: 10px;
+            position: relative;
         }
         
-        /* Contact Styles */
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* قسم التواصل */
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .contact-card {
-            background: linear-gradient(145deg, rgba(17, 34, 64, 0.8), rgba(30, 74, 118, 0.5));
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .contact-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--accent), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .contact-title {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--lighter-text);
-            font-family: 'El Messiri', serif;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
         
         .contact-info {
-            color: var(--sky-blue);
-            font-size: 1.15rem;
-            margin-bottom: 10px;
-        }
-        
-        .contact-link {
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: block;
-            margin-top: 10px;
-            font-size: 1.05rem;
-            position: relative;
-        }
-        
-        .contact-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        .contact-link:hover::after {
-            width: 100%;
-        }
-        
-        .contact-link:hover {
-            color: var(--accent-light);
-        }
-        
-        /* CV Section */
-        .cv-container {
-            text-align: center;
-            padding: 30px 0;
-        }
-        
-        .cv-btn {
-            display: inline-block;
-            background: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            padding: 12px 35px;
-            font-size: 1.15rem;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            margin-top: 10px;
-            font-family: 'El Messiri', serif;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .cv-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
-            transition: 0.5s;
-            z-index: -1;
-        }
-        
-        .cv-btn:hover::before {
-            left: 100%;
-        }
-        
-        .cv-btn:hover {
-            background: rgba(100, 255, 218, 0.1);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0 20px;
-            color: var(--sky-blue);
-            font-size: 1rem;
-            margin-top: 40px;
-        }
-        
-        .footer-text {
-            margin-bottom: 8px;
-        }
-        
-        .social-icons {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 20px;
-            margin-top: 20px;
         }
         
-        .social-icon {
-            color: var(--sky-blue);
-            font-size: 1.4rem;
-            transition: all 0.3s ease;
-            width: 45px;
-            height: 45px;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(17, 34, 64, 0.5);
-            border: 1px solid rgba(100, 255, 218, 0.1);
+            font-size: 20px;
         }
         
-        .social-icon:hover {
-            color: var(--accent);
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Particles background */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: var(--gray);
+            border: none;
+            border-radius: 5px;
+            color: var(--light);
         }
         
-        .particle {
-            position: absolute;
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* الفوتر */
+        footer {
+            background: var(--gray);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(100, 255, 218, 0.3);
-            animation: float 15s infinite ease-in-out;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            25% { transform: translateY(-20px) translateX(10px); }
-            50% { transform: translateY(-40px) translateX(-10px); }
-            75% { transform: translateY(-20px) translateX(10px); }
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
         }
         
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .name {
-                font-size: 3rem;
-            }
-            
-            .title {
-                font-size: 1.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 1.9rem;
-            }
-            
-            .expertise-container, .projects-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            }
-        }
-        
+        /* التكيف مع الشاشات الصغيرة */
         @media (max-width: 768px) {
-            .name {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .expertise-title, .project-title, .experience-title, .contact-title {
-                font-size: 1.35rem;
-            }
-            
-            .expertise-desc, .experience-desc, .contact-info {
-                font-size: 1rem;
-            }
-            
-            nav {
-                gap: 10px;
-            }
-            
-            .nav-btn {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .name {
-                font-size: 2.2rem;
-            }
-            
-            .title {
+            .hero h2 {
                 font-size: 1.3rem;
             }
             
-            .tagline {
-                font-size: 1.1rem;
+            .timeline::after {
+                left: 31px;
             }
             
-            .section-title {
-                font-size: 1.6rem;
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
             }
             
-            .expertise-container, .projects-grid, .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .project-img {
-                height: 160px;
+            .timeline-item:nth-child(even) {
+                left: 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Particles Background -->
-    <div class="particles" id="particles"></div>
-    
-    <div class="container">
-        <!-- Header Section -->
-        <header>
-            <h1 class="name">ريميّة الغيثي<br><span style="font-size: 2.8rem;">Remiyah Al-Githi</span></h1>
-            <p class="title">Data Scientist | AI Specialist | Business Intelligence Analyst</p>
-            <p class="tagline">عالمة بيانات | أخصائية ذكاء اصطناعي | محللة ذكاء الأعمال</p>
-        </header>
-        
-        <!-- Navigation -->
-        <nav>
-            <button class="nav-btn active" data-target="expertise">مجالات الخبرة</button>
-            <button class="nav-btn" data-target="projects">المشاريع</button>
-            <button class="nav-btn" data-target="experience">الخبرات</button>
-            <button class="nav-btn" data-target="cv">السيرة الذاتية</button>
-            <button class="nav-btn" data-target="contact">التواصل</button>
-        </nav>
-        
-        <!-- Expertise Section -->
-        <section id="expertise" class="active">
-            <h2 class="section-title">مجالات الخبرة</h2>
-            <div class="expertise-container">
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="expertise-title">عالمة بيانات</h3>
-                    <p class="expertise-desc">
-                        تحليل وتنقية البيانات لاستخراج الرؤى القيمة. استخدام تقنيات إحصائية متقدمة وتصور البيانات لاتخاذ قرارات مدعومة بالبيانات. خبرة في Python, R, SQL وأدوات التحليل الإحصائي.
-                    </p>
-                </div>
-                
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="expertise-title">أخصائية ذكاء اصطناعي</h3>
-                    <p class="expertise-desc">
-                        تصميم وتطوير أنظمة ذكاء اصطناعي متكاملة تشمل معالجة اللغات الطبيعية، الرؤية الحاسوبية، وأنظمة التوصية. خبرة في تطوير نماذج تعلم عميق باستخدام TensorFlow وPyTorch.
-                    </p>
-                </div>
-                
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3 class="expertise-title">محللة ذكاء الأعمال</h3>
-                    <p class="expertise-desc">
-                        تطوير حلول Business Intelligence باستخدام أدوات مثل Tableau وPower BI. تصميم لوحات تحكم تفاعلية وتقارير قابلة للتخصيص لمساعدة المؤسسات في اتخاذ القرارات الإستراتيجية.
-                    </p>
-                </div>
-                
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="expertise-title">مهندسة تعلم آلي</h3>
-                    <p class="expertise-desc">
-                        تطوير نماذج تعلم آلي من مرحلة ما قبل المعالجة إلى النشر. بناء خطوط أنابيب بيانات كاملة وتقييم النماذج وتحسينها لتحقيق أعلى دقة وأداء.
-                    </p>
-                </div>
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="container">
+            <div class="logo">R.H</div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#projects">الأعمال السابقة</a></li>
+                <li><a href="#resume">السيرة الذاتية</a></li>
+                <li><a href="#contact">التواصل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- قسم المقدمة -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>ريمية الحطيم</h1>
+            <h2>Data Scientist and Business Intelligence Analyst And AI Specialist</h2>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">أعمالي</a>
+                <a href="#contact" class="btn btn-outline">تواصل معي</a>
             </div>
-        </section>
-        
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="section-title">المشاريع</h2>
+        </div>
+    </section>
+
+    <!-- قسم الأعمال السابقة -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">الأعمال السابقة</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <i class="fas fa-analytics"></i>
+                        <i class="fas fa-chart-line fa-3x"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">نظام تحليل البيانات الضخمة</h3>
-                        <div class="project-desc">
-                            نظام متكامل لتحليل البيانات الضخمة باستخدام خوارزميات التعلم الآلي. يجمع بين تقنيات معالجة البيانات والتخزين الموزع لتحليل كميات هائلة من البيانات في وقت قياسي.
-                        </div>
+                        <h3>تحليل بيانات العملاء</h3>
+                        <p>نظام متكامل لتحليل سلوك العملاء وتوقع احتياجاتهم باستخدام خوارزميات التعلم الآلي.</p>
                     </div>
                 </div>
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-brain fa-3x"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">منصة ذكاء الأعمال</h3>
-                        <div class="project-desc">
-                            منصة متكاملة لتحليل أداء الأعمال وتقديم رؤى قابلة للتنفيذ. توفر لوحات تحكم مخصصة وتقارير تلقائية مع إمكانية التنبؤ بالاتجاهات المستقبلية.
-                        </div>
+                        <h3>نظام التوصية الذكية</h3>
+                        <p>نظام توصية قائم على التعلم العميق لتحسين تجربة المستخدم وزيادة المبيعات.</p>
                     </div>
                 </div>
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <i class="fas fa-ai"></i>
+                        <i class="fas fa-database fa-3x"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">نظام التوصيات الذكي</h3>
-                        <div class="project-desc">
-                            نظام توصيات يعتمد على خوارزميات التعلم العميق لتحليل تفضيلات المستخدمين وتقديم توصيات دقيقة. يستخدم تقنيات معالجة اللغة الطبيعية والرؤية الحاسوبية.
-                        </div>
+                        <h3>منصة BI متكاملة</h3>
+                        <p>منصة لتحليل البيانات وعرض التقارير لمساعدة متخذي القرار في الشركات.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2 class="section-title">الخبرات العملية</h2>
-            <div class="experience-container">
-                <div class="experience-card">
-                    <h3 class="experience-title">عالمة بيانات أولى</h3>
-                    <span class="experience-company">شركة التقنية المتقدمة | 2022 - الحاضر</span>
-                    <p class="experience-desc">
-                        قيادة فريق البيانات لتطوير حلول ذكاء اصطناعي متقدمة. تصميم نماذج تنبؤية وتحليلية لتحسين عمليات الأعمال واتخاذ القرارات. تطوير استراتيجيات جمع البيانات وتخزينها ومعالجتها.
-                    </p>
-                </div>
-                
-                <div class="experience-card">
-                    <h3 class="experience-title">محللة ذكاء أعمال</h3>
-                    <span class="experience-company">مؤسسة البيانات الذكية | 2020 - 2022</span>
-                    <p class="experience-desc">
-                        تطوير لوحات تحكم تفاعلية وتقارير أداء للفرق الإدارية. تحليل بيانات السوق والمنافسين لتحديد فرص النمو. تقديم توصيات استراتيجية بناءً على تحليلات متقدمة.
-                    </p>
-                </div>
-                
-                <div class="experience-card">
-                    <h3 class="experience-title">باحثة في الذكاء الاصطناعي</h3>
-                    <span class="experience-company">جامعة التكنولوجيا | 2018 - 2020</span>
-                    <p class="experience-desc">
-                        إجراء أبحاث في مجال معالجة اللغة الطبيعية والرؤية الحاسوبية. نشر أوراق علمية في مؤتمرات دولية. تطوير نماذج أولية لتطبيقات الذكاء الاصطناعي في مجالات مختلفة.
-                    </p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- CV Section -->
-        <section id="cv">
+        </div>
+    </section>
+
+    <!-- قسم السيرة الذاتية -->
+    <section id="resume">
+        <div class="container">
             <h2 class="section-title">السيرة الذاتية</h2>
-            <div class="cv-container">
-                <p style="color: var(--sky-blue); margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    يمكنك تحميل سيرتي الذاتية للاطلاع على تفاصيل خبراتي الأكاديمية والمهنية، ومشاريعي البحثية، والمهارات التقنية التي أمتلكها في مجال علم البيانات والذكاء الاصطناعي وتحليل الأعمال.
-                </p>
-                <a href="#" class="cv-btn">تحميل السيرة الذاتية (PDF)</a>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>خبيرة ذكاء اصطناعي</h3>
+                        <p>شركة التقنية المتقدمة</p>
+                        <p>2020 - حتى الآن</p>
+                        <p>تطوير أنظمة الذكاء الاصطناعي وتحليل البيانات الضخمة.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>محللة بيانات</h3>
+                        <p>شركة الحلول الذكية</p>
+                        <p>2018 - 2020</p>
+                        <p>تحليل البيانات وإنشاء تقارير Business Intelligence.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>ماجستير في علم البيانات</h3>
+                        <p>جامعة الملك سعود</p>
+                        <p>2016 - 2018</p>
+                        <p>تخصص في تحليل البيانات والذكاء الاصطناعي.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>بكالوريوس في علوم الحاسب</h3>
+                        <p>جامعة الأميرة نورة</p>
+                        <p>2012 - 2016</p>
+                        <p>تخصص رئيسي في علوم الحاسب والذكاء الاصطناعي.</p>
+                    </div>
+                </div>
             </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="section-title">تواصل معي</h2>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">التواصل</h2>
             <div class="contact-container">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>البريد الإلكتروني</h3>
+                            <p>r.alhatim@example.com</p>
+                        </div>
                     </div>
-                    <h3 class="contact-title">الهاتف</h3>
-                    <p class="contact-info">+966 55 123 4567</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>الهاتف</h3>
+                            <p>+966 12 345 6789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>العنوان</h3>
+                            <p>الرياض، المملكة العربية السعودية</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3 class="contact-title">البريد الإلكتروني</h3>
-                    <p class="contact-info">remiyah@example.com</p>
-                    <a href="mailto:remiyah@example.com" class="contact-link">إرسال رسالة</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <h3 class="contact-title">لينكد إن</h3>
-                    <p class="contact-info">Remiyah Al-Githi</p>
-                    <a href="https://linkedin.com/in/remiyah" target="_blank" class="contact-link">زيارة الملف الشخصي</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <h3 class="contact-title">جيت هاب</h3>
-                    <p class="contact-info">Remiyah-AlGithi</p>
-                    <a href="https://github.com/Remiyah-AlGithi" target="_blank" class="contact-link">عرض المشاريع</a>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="اسمك">
+                        <input type="email" placeholder="بريدك الإلكتروني">
+                        <input type="text" placeholder="الموضوع">
+                        <textarea placeholder="رسالتك"></textarea>
+                        <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+                    </form>
                 </div>
             </div>
-        </section>
-        
-        <!-- Footer -->
-        <footer>
-            <p class="footer-text">© 2023 ريميّة الغيثي. جميع الحقوق محفوظة.</p>
-            <p class="footer-text">مصمم بحب من عالمة بيانات ومهندسة ذكاء اصطناعي</p>
-            
-            <div class="social-icons">
-                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-medium"></i></a>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-        </footer>
-    </div>
-    
-    <script>
-        // Navigation functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const navButtons = document.querySelectorAll('.nav-btn');
-            const sections = document.querySelectorAll('section');
-            
-            navButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const target = this.getAttribute('data-target');
-                    
-                    // Remove active class from all buttons and sections
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    sections.forEach(section => section.classList.remove('active'));
-                    
-                    // Add active class to clicked button and target section
-                    this.classList.add('active');
-                    document.getElementById(target).classList.add('active');
-                    
-                    // Scroll to the section
-                    document.getElementById(target).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Create particles
-            createParticles();
-            
-            function createParticles() {
-                const particlesContainer = document.getElementById('particles');
-                const particleCount = 30;
-                
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    
-                    // Random size between 3px and 8px
-                    const size = Math.random() * 5 + 3;
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    
-                    // Random position
-                    particle.style.left = `${Math.random() * 100}vw`;
-                    particle.style.top = `${Math.random() * 100}vh`;
-                    
-                    // Random animation delay
-                    particle.style.animationDelay = `${Math.random() * 15}s`;
-                    
-                    particlesContainer.appendChild(particle);
-                }
-            }
-        });
-    </script>
+            <p>© 2023 جميع الحقوق محفوظة | ريمية الحطيم</p>
+        </div>
+    </footer>
 </body>
 </html>
