@@ -30,7 +30,7 @@ I combine my love for numbers, logic, and technology to create smart solutions t
 Feel free to reach out or explore my journey:
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/remiyah-al-githi-a66837298)
-- 🌍 [Personal Website](https://Remiyah.github.io)
+
 - 📧 Email: remiyah.mohsen.algithi@gmail.com
 
 ---
